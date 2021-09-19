@@ -1,0 +1,1172 @@
+<ContentNavigationDrawer>:
+
+    ScrollView:
+
+        MDList:
+
+            OneLineListItem:
+                text: "Histórico de Impressões"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 1"
+
+            OneLineListItem:
+                text: "Impressões/Custos por Departamento"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 2"
+
+            OneLineListItem:
+                text: "Impressões por Usuário"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 3"
+            
+            OneLineListItem:
+                text: "TOP 10 - Custos de Impressão por Departamento"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 4"
+
+            OneLineListItem:
+                text: "TOP 10 - Impressões por Departamento"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 5"   
+
+            OneLineListItem:
+                text: "TOP 10 - Impressões Coloridas"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 6"  
+
+            OneLineListItem:
+                text: "TOP 10 - Impressões por Usuário"
+                on_press:
+                    root.nav_drawer.set_state("close")
+                    root.screen_manager.current = "scr 7"                      
+                        
+
+
+MDScreen:
+
+    MDToolbar:
+        id: toolbar
+        pos_hint: {"top": 1}
+        elevation: 20
+        title: "Relatório de Impressoras"
+        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+        right_action_items: [['chart-arc', lambda x: app.gerar_report(), 'Atualizar Relatórios']]
+
+    MDLabel:
+        id: OK
+        text:''
+        halign: 'center'
+        pos_hint: {"center_y": .1}
+        theme_text_color: "Custom"
+        text_color: 'B71C1C'
+        font_size: 20
+
+
+        
+
+
+    MDNavigationLayout:
+        x: toolbar.height
+
+        ScreenManager:
+            id: screen_manager
+
+
+
+
+            MDScreen:
+                name: "scr 1"
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "360dp"
+                    pos_hint: {"center_x": .5, "center_y": .67}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Total Iberostar no Mês"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDLabel:
+                        text: "Hotel Bahia"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: h1_total
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: h1_custo
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                   
+                    MDLabel:
+                        text: "Hotel Praia do Forte"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+                   
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: h2_total
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: h2_custo
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                    MDLabel:
+                        text: "Comuns"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: com_total
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: com_custo
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                    MDLabel:
+                        text: "Complexo"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: total_geral
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: custo_geral
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'   
+                            
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .5, "center_y": .32}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Média Mensal Iberostar"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "2019"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: mmedia_2019
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "2020"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: mmedia_2020
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                        MDLabel:
+                            text: "2021"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: mmedia_2021
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'   
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .5, "center_y": .12}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Total Geral Iberostar"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "2019"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: mtotal_2019
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "2020"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: mtotal_2020
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                        MDLabel:
+                            text: "2021"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: mtotal_2021
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'                    
+
+                
+            MDScreen:
+                name: "scr 2"
+
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .65, "center_y": .77}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Coloridas"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: cor_total
+                            text: ''
+                            halign: "center"
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: cor_custo
+                            text: ''
+                            halign: "center"
+                
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .65, "center_y": .57}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "P & B"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: pb_total
+                            text: ''
+                            halign: "center"
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: pb_custo
+                            text: ''
+                            halign: "center"  
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .65, "center_y": .37}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Totais Departamento no Mês"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Unidades"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: total_dpto
+                            text: ''
+                            halign: "center"
+                        
+
+                        MDLabel:
+                            text: "Custo"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: custo_dpto
+                            text: ''
+                            halign: "center"  
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "120dp"
+                    pos_hint: {"center_x": .65, "center_y": .17}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Média Mensal de Impressões do Departamento"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "2019"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: media_2019
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "2020"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: media_2020
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                        MDLabel:
+                            text: "2021"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: media_2021
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'   
+                
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "420dp", "60dp"
+                    pos_hint: {"center_x": .20, "center_y": .85}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Selecione o departamento para visualizar"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+            
+                
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "280dp", "710dp"
+                    pos_hint: {"center_x": .20, "center_y": .42}
+
+                    ScrollView:
+
+                        MDList:
+                            id: List_dpto
+
+                            OneLineListItem:
+                                text: "com_administracao"
+                                on_release: app.com_adm()
+                            OneLineListItem:
+                                text: "com_almoxarifado"
+                                on_release: app.com_alx()
+                            OneLineListItem:
+                                text: "com_animacao"   
+                                on_release: app.com_anim() 
+                            OneLineListItem:
+                                text: "com_bares"
+                                on_release: app.com_bar()
+                            OneLineListItem:
+                                text: "com_compras"    
+                                on_release: app.com_comp()
+                            OneLineListItem:
+                                text: "com_cozinha"
+                                on_release: app.com_coz()
+                            OneLineListItem:
+                                text: "com_direção"    
+                                on_release: app.com_dir()
+                            OneLineListItem:
+                                text: "com_rrhh"    
+                                on_release: app.com_rh()
+                            OneLineListItem:
+                                text: "com_golf"    
+                                on_release: app.com_golf()
+                            OneLineListItem:
+                                text: "com_governança"
+                                on_release: app.com_gov()
+                            OneLineListItem:
+                                text: "com_grupos"    
+                                on_release: app.com_grup()
+                            OneLineListItem:
+                                text: "com_informatica"
+                                on_release: app.com_info()
+                            OneLineListItem:
+                                text: "com_lavanderia"   
+                                on_release: app.com_lav() 
+                            OneLineListItem:
+                                text: "com_manutencao"
+                                on_release: app.com_man()
+                            OneLineListItem:
+                                text: "com_reservas"
+                                on_release: app.com_res()
+                            OneLineListItem:
+                                text: "com_seguridad"
+                                on_release: app.com_seg()
+                            OneLineListItem:
+                                text: "com_telefones"    
+                                on_release: app.com_tel()
+                            OneLineListItem:
+                                text: "h1_animacao"    
+                                on_release: app.h1_anim()
+                            OneLineListItem:
+                                text: "h1_bares"
+                                on_release: app.h1_bar()
+                            OneLineListItem:
+                                text: "h1_cozinha"    
+                                on_release: app.h1_coz()
+                            OneLineListItem:
+                                text: "h1_direcao"
+                                on_release: app.h1_dir()
+                            OneLineListItem:
+                                text: "h1_governanta"    
+                                on_release: app.h1_gov()
+                            OneLineListItem:
+                                text: "h1_manutencao"
+                                on_release: app.h1_man()
+                            OneLineListItem:
+                                text: "h1_recepcao"    
+                                on_release: app.h1_recep()
+                            OneLineListItem:
+                                text: "h1_rrpp"
+                                on_release: app.h1_rp()
+                            OneLineListItem:
+                                text: "h2_animacao"
+                                on_release: app.h2_anim()
+                            OneLineListItem:
+                                text: "h2_bares"    
+                                on_release: app.h2_bar()
+                            OneLineListItem:
+                                text: "h2_cozinha"
+                                on_release: app.h2_coz()
+                            OneLineListItem:
+                                text: "h2_direcao"    
+                                on_release: app.h2_dir()
+                            OneLineListItem:
+                                text: "h2_governanta"
+                                on_release: app.h2_gov()
+                            OneLineListItem:
+                                text: "h2_manutencao"
+                                on_release: app.h2_man()
+                            OneLineListItem:
+                                text: "h2_recepcao"
+                                on_release: app.h2_recep()
+                            OneLineListItem:
+                                text: "h2_rrpp"          
+                                on_release: app.h2_rp()  
+                            OneLineListItem:
+                                text: "Escritório_Salvador"          
+                                on_release: app.salvador()      
+
+            MDScreen:
+                name: "scr 3"
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "280dp", "710dp"
+                    pos_hint: {"center_x": .15, "center_y": .455}
+
+                    ScrollView:
+
+                        MDList:
+                            id: usuarios
+                          
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "560dp", "180dp"
+                    pos_hint: {"center_x": .65, "center_y": .50}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "Total de Impressões"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_dark
+
+                    MDCard:
+                        orientation: 'horizontal'
+                        elevation:20
+                        
+
+                        MDLabel:
+                            text: "Há 02 meses"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light 
+
+                        MDLabel:
+                            id: ante_anterior
+                            text: ''
+                            halign: "center"
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+                        
+
+                        MDLabel:
+                            text: "Mês Anterior"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: anterior
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C'
+
+                        MDLabel:
+                            text: "Mês Atual"
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light       
+                    
+                        MDLabel:
+                            id: atual
+                            text: ''
+                            halign: "center"  
+                            bold: 'True'
+                            theme_text_color: "Custom"
+                            text_color: 'B71C1C' 
+
+                MDRaisedButton:
+                    text: "Gerar Relatório"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .10} 
+                    bold: 'True'
+                    font_size: "18sp"   
+                    on_release: app.consulta_users() 
+
+
+            MDScreen:
+                name: "scr 4"
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "740dp", "60dp"
+                    pos_hint: {"center_x": .5, "center_y": .85}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "TOP 10 - Custos de Impressão por Departamento"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+                    
+
+                MDCard:
+                    orientation: 'horizontal'
+                    elevation:20
+                    size_hint: None, None
+                    size: "580dp", "560dp"
+                    pos_hint: {"center_x": .5, "center_y": .425}
+                    padding: "8dp"
+                    halign: "center"
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Departamento'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light      
+
+                        MDList:
+                            id: top10_impress
+                            
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Custo'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light          
+            
+
+                        MDList:
+                            id: top10_impress1
+
+                MDRaisedButton:
+                    text: "Gerar Relatório"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .10} 
+                    bold: 'True'
+                    font_size: "18sp"   
+                    on_release: app.top10_custos()    
+                            
+                   
+            MDScreen:
+                name: "scr 5"
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "920dp", "80dp"
+                    pos_hint: {"center_x": .5, "center_y": .85}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "TOP 10 - Impressões por Departamento"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+
+                    
+
+                MDCard:
+                    orientation: 'horizontal'
+                    elevation:20
+                    size_hint: None, None
+                    size: "920dp", "540dp"
+                    pos_hint: {"center_x": .5, "center_y": .425}
+                    padding: "8dp"
+                    halign: "center"
+
+                    
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+
+                        MDLabel:
+                            text: 'Departamento'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light   
+
+                        MDList:
+                            id: top10_media
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Total Mês' 
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light         
+    
+                        MDList:
+                            id: top10_media1
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Média Mensal 2019' 
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light          
+
+                    
+                        MDList:
+                            id: top10_media2
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Média Mensal 2020'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light   
+
+                        MDList:
+                            id: top10_media3
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Média Mensal 2021'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light                   
+
+                        MDList:
+                            id: top10_media4
+                MDRaisedButton:
+                    text: "Gerar Relatório"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .10} 
+                    bold: 'True'
+                    font_size: "18sp"   
+                    on_release: app.top10_imp()   
+            
+            MDScreen:
+                name: "scr 6" 
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "740dp", "60dp"
+                    pos_hint: {"center_x": .5, "center_y": .85}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "TOP 10 - Impressões Coloridas"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+                    
+
+                MDCard:
+                    orientation: 'horizontal'
+                    elevation:20
+                    size_hint: None, None
+                    size: "580dp", "560dp"
+                    pos_hint: {"center_x": .5, "center_y": .425}
+                    padding: "8dp"
+                    halign: "center"
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Departamento'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light                   
+
+
+                        MDList:
+                            id: top10_cor
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Páginas Coloridas'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light            
+                        
+                        MDList:
+                            id: top10_cor1              
+                
+                MDRaisedButton:
+                    text: "Gerar Relatório"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .10} 
+                    bold: 'True'
+                    font_size: "18sp"   
+                    on_release: app.top10_cor()  
+
+            MDScreen:
+                name: "scr 7"
+
+                MDCard:
+                    orientation: 'vertical'
+                    elevation:20
+                    size_hint: None, None
+                    size: "920dp", "80dp"
+                    pos_hint: {"center_x": .5, "center_y": .85}
+                    padding: "8dp"
+
+
+                    MDLabel:
+                        text: "TOP 10 - Impressões por Usuário"
+                        theme_text_color: 'Custom'
+                        text_color: 'F8F8FF'
+                        bold: 'True'
+                        halign: "center"
+                        md_bg_color: app.theme_cls.primary_color
+
+                    
+
+                MDCard:
+                    orientation: 'horizontal'
+                    elevation:20
+                    size_hint: None, None
+                    size: "920dp", "540dp"
+                    pos_hint: {"center_x": .5, "center_y": .425}
+                    padding: "8dp"
+                    halign: "center"
+
+                    
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+
+                        MDLabel:
+                            text: 'Usuário'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light   
+
+                        
+                        MDList:
+                            id: top20_user
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Mês Atual' 
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light         
+    
+                       
+
+                        MDList:
+                            id: top20_user1
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Mês Anterior' 
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light          
+
+                                    
+
+                        MDList:
+                            id: top20_user2
+
+                    MDCard:
+                        elevation:20
+                        orientation: 'vertical'
+
+                        MDLabel:
+                            text: 'Há Dois Meses'
+                            theme_text_color: 'Custom'
+                            text_color: '000000'
+                            bold: 'True'
+                            halign: "center"
+                            md_bg_color: app.theme_cls.primary_light   
+
+                      
+
+                        MDList:
+                            id: top20_user3
+
+                MDRaisedButton:
+                    text: "Gerar Relatório"
+                    md_bg_color: app.theme_cls.primary_color
+                    pos_hint: {"center_x": .5, "center_y": .10} 
+                    bold: 'True'
+                    font_size: "18sp"   
+                    on_release: app.top10_user()    
+
+
+
+        MDNavigationDrawer:
+            id: nav_drawer
+
+            ContentNavigationDrawer:
+                screen_manager: screen_manager
+                nav_drawer: nav_drawer
+
+            
+    
